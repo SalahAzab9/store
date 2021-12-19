@@ -1,7 +1,8 @@
 var path = require("path");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var OptimizeCSSAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin")
+var OptimizeCSSAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
+const { loader } = require("mini-css-extract-plugin");
 
 
 module.exports = {
@@ -39,9 +40,15 @@ module.exports = {
       {
         test:/\.css$/,
         use:[
-            
-            MiniCssExtractPlugin.loader,
-            "css-loader"
+            {
+              loader:MiniCssExtractPlugin.loader,
+              options:{
+                publicPath:"../",
+              }
+            },
+            {
+              loader: "css-loader",
+            }
         ]
       },
       {
@@ -55,10 +62,29 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(svg|eot|woff|woff2|ttf)$/,
+        use:[
+          {
+            loader:"file-loader",
+            options:{
+              name:'[name].[ext]',
+              outputPath:"fonts",
+              esModule:false,
+            }
+          }
+        ]
+      },
+      {
+        test: require.resolve("jquery"),
+        loader: "expose-loader",
+        options: {
+          exposes: ["$","jquery"],
       }
-    ]
-  },
-
+    },
+  ],
+},
   plugins: [
    new HtmlWebpackPlugin({
     filename: "index.html",
@@ -74,4 +100,4 @@ module.exports = {
   ],
 
 
-};
+}
