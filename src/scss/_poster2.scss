@@ -1,0 +1,31 @@
+@import './variables';
+
+.poster {
+
+    background-color:#53ccd7 ;
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    .poster2 {
+        span {
+            font-size: 14px;
+        }
+    }
+}
+
+.poster2{
+    top: -15px;
+    left: -15px;
+    padding: 35px;
+    width: 60px;
+    height: 60px;
+    border-radius:50% ;
+    transform: rotate(-25deg);   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 130%;
+    flex-direction: column;
+    line-height: 90%;
+}
+

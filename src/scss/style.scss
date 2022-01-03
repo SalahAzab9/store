@@ -1,0 +1,47 @@
+@import './variables';
+@import './customtable';
+@import './mixin';
+@import './uislider';
+@import './poster2';
+@import './custom';
+
+input.custom-form-control ,a.custom-dropdown-toggle{
+    border: 1px solid #EBEBEB;
+    border-radius: 2px;
+    padding:6px 16px 7px 16px ;
+    font-size: 14px;
+    transition: all 0.3s ease ;
+    color: #868686;
+
+}
+
+.custom-dropdown-toggle:hover{
+    background-color:#d4d4d4 ;
+    color: $btn-primary-color-dark;
+    border: 1px solid #8c8c8c;
+}
+
+.custom-btn-primary {
+    @include button-style($brand-primary);
+}
+
+.custom-btn-primary2 {
+    color: #000 !important;
+    background-color: $brand-primary !important;
+    border-color: $brand-primary !important;
+    &:hover,
+    &:active,
+    &:focus,
+    &:active:focus,
+    &:active:hover {
+        background-color: $btn-primary-color-dark !important;
+        border-color: $btn-primary-color-dark !important;
+        color: #000;
+    }
+}
+
+
+.custom-btn-danger {
+    @include button-style($brand-danger);
+}
+

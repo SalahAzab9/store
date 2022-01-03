@@ -1,0 +1,8 @@
+$theme-colors : (
+    'primary' : $brand-primary,
+);
+
+
+
+@import '../../node_modules/@laylazi/bootstrap-rtl-scss/scss/bootstrap-rtl.scss';
+@import './variables'

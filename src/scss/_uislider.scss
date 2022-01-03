@@ -1,0 +1,35 @@
+@import './variables';
+
+.ui-slider {
+    margin: 25px 0 15px !important;
+    height: 2px !important;
+
+    .ui-slider-handle {
+        background-color: $brand-primary !important;
+        width: 12px !important;
+        height: 12px !important;
+        border: none !important;
+        border-radius: 50% !important;
+        top: -6px !important;
+    
+    }
+    
+    .ui-slider-range {
+        border: 1px solid $brand-primary !important;
+        top: -1px !important;
+    }
+
+
+}
+
+@media (max-width:991px){
+    .ui-slider {
+        .ui-slider-handle {
+            width: 20px !important;
+            height: 20px !important;
+            top: -10px !important;
+        }
+    }
+}
+
+
