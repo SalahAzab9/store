@@ -41,13 +41,13 @@ $(document).ready(function () {
 
       parent.find('.total-price-for-product').text(totalPriceForProduct + '$');
 
-      calculateTotlaPrice()
+      calculateTotlaPrice();
       // وهنا حطينا الدالة اللي احنا عملناها هنا عشان لازم يحصل حذث اللي هو تغيير قيم كميات المنتج عشان تتم الدالة دي
     });
 
     $('[data-remove-from-cart]').click(function(){
-      $(this).parents('[data-product-info]').remove()
-      calculateTotlaPrice()
+      $(this).parents('[data-product-info]').remove();
+      calculateTotlaPrice();
       // بعد ما قمنا بحذف المنتج بالزرار الخاص بالحذف لازم ننفذ ظالة حساب السعر الاجمالي تاني
     })
 
@@ -80,13 +80,16 @@ $(document).ready(function () {
       var cities = CitiesBYCountry[country];
 
       $('#form-checkout select[name="city"]').empty();
-
+                            // السطر ده اهميته عشان لو المستخدم اختار مثلا مصر بعد كدة غيرها واختار السعودية
       $('#form-checkout select[name="city"]').append(
         '<option value="" disabled selected>اختر المدينة</option>'
       );
 
       cities.forEach(function(city){
+            // المقصود كل مدينة من المدن اللي متخزنة في ال sa مثلا
+            // city مقصود بيها كل قيمة في المصفوفة علي حدا
         var newOption = $('<option></option>');
+            // حنعمل لكل واحدة option ليه تكست وفاليو
         newOption.text(city);
         newOption.val(city);
         $('#form-checkout select[name="city"]').append(newOption);
@@ -122,15 +125,17 @@ $(document).ready(function () {
       slide: function(event , ui) {
         // هنا حنستخدم الخاصية سليد علي السليدر ونحدد فيها دالة في حالة 
         // حدوث السليد استخدم ui
-        // عشان تحط القيمة الاولي اللي داخل القيم اللي في السليدر واللي بتتحدد باستخدام
-        // اول رقم في المصفوفة اللي ترتيبه 0 
+        // حيتسجل القيمة اللي تخص المحرك الاولاني 
+        // والقيمة اللي تخص المحرك التاني اللي ترتيبهم 0 و1 
         // وهنا المقصود يعني المحرك اللي علي الشمال اللي بيتحكم في اول قيمة في المصفوفة
         // اللي هو اصغر رقم وعايزة يحط قيمتها في السبان الاولي
         // وتاني رقم هو الرقم اللي بيتغير بتغيير المحرك اللي علي اليمين اللي بيتحكم في الرقم الكبير
         // وهنا ملناش دعوة بالقيم اللي فوق دي عشان دي قيم بتظهر بس علي السليدر قبل مانحرك
         // وناخد بلنا ان القيم دي حتتحط في السبان بمجرد حدوث الحدث سليد
         $("#price-min").text(ui.values[0]);
+                              // قيمة اليو اي الاولاني 
         $("#price-max").text(ui.values[1]);
+                              // قيمة اليو اي التاني 
 
       }
     })
